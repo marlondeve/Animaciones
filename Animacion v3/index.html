@@ -1,0 +1,346 @@
+<style>
+        :root {
+    --background: #212120;
+}
+body {
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+.animacion {
+    --duration: 3s;
+    --primary: rgba(39, 94, 254, 1);
+    --primary-light: #2f71ff;
+    --primary-rgba: rgba(39, 94, 254, 0);
+    width: 200px;
+    height: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+@media (max-width: 480px) {
+    .animacion {
+        zoom: 0.44;
+    }
+}
+.animacion:before, .animacion:after {
+    --r: 20.5deg;
+    content: '';
+    width: 320px;
+    height: 140px;
+    position: absolute;
+    right: 32%;
+    bottom: -11px;
+    background: var(--background);
+    transform: translatez(200px) rotate(var(--r));
+    animation: mask var(--duration) linear forwards infinite;
+}
+.animacion:after {
+    --r: -20.5deg;
+    right: auto;
+    left: 32%;
+}
+.ground {
+    position: absolute;
+    left: -50px;
+    bottom: -120px;
+    transform-style: preserve-3d;
+    transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);
+}
+.ground div {
+    transform: rotatex(90deg) rotatey(0deg) translate(-48px, -120px) translatez(100px) scale(0);
+    width: 200px;
+    height: 200px;
+    background: var(--primary);
+    background: linear-gradient(45deg, var(--primary) 0%, var(--primary) 50%, var(--primary-light) 50%, var(--primary-light) 100%);
+    transform-style: preserve-3d;
+    animation: ground var(--duration) linear forwards infinite;
+}
+.ground div:before, .ground div:after {
+    --rx: 90deg;
+    --ry: 0deg;
+    --x: 44px;
+    --y: 162px;
+    --z: -50px;
+    content: '';
+    width: 156px;
+    height: 300px;
+    opacity: 0;
+    background: linear-gradient(var(--primary), var(--primary-rgba));
+    position: absolute;
+    transform: rotatex(var(--rx)) rotatey(var(--ry)) translate(var(--x), var(--y)) translatez(var(--z));
+    animation: ground-shine var(--duration) linear forwards infinite;
+}
+.ground div:after {
+    --rx: 90deg;
+    --ry: 90deg;
+    --x: 0px;
+    --y: 177px;
+    --z: 150px;
+}
+.caja {
+    --x: 0;
+    --y: 0;
+    position: absolute;
+    animation: var(--duration) linear forwards infinite;
+    transform: translate(var(--x), var(--y));
+}
+.caja div {
+    background-color: var(--primary);
+    width: 48px;
+    height: 48px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: var(--duration) ease forwards infinite;
+    transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);
+}
+.caja div:after, .caja div:before {
+    --rx: 90deg;
+    --ry: 0deg;
+    --z: 24px;
+    --y: -24px;
+    --x: 0;
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    width: inherit;
+    height: inherit;
+    transform: rotatex(var(--rx)) rotatey(var(--ry)) translate(var(--x), var(--y)) translatez(var(--z));
+    filter: brightness(var(--b, 1.2));
+}
+.caja div:after {
+    --rx: 0deg;
+    --ry: 90deg;
+    --b: 1.4;
+    --y: 0;
+    --x: 24px;
+}
+.caja.caja0 {
+    --x: -220px;
+    --y: -120px;
+    left: 58px;
+    top: 108px;
+}
+.caja.caja1 {
+    --x: -260px;
+    --y: 120px;
+    left: 25px;
+    top: 120px;
+}
+.caja.caja2 {
+    --x: 120px;
+    --y: -190px;
+    left: 58px;
+    top: 64px;
+}
+.caja.caja3 {
+    --x: 280px;
+    --y: -40px;
+    left: 91px;
+    top: 120px;
+}
+.caja.caja4 {
+    --x: 60px;
+    --y: 200px;
+    left: 58px;
+    top: 132px;
+}
+.caja.caja5 {
+    --x: -220px;
+    --y: -120px;
+    left: 25px;
+    top: 76px;
+}
+.caja.caja6 {
+    --x: -260px;
+    --y: 120px;
+    left: 91px;
+    top: 76px;
+}
+.caja.caja7 {
+    --x: -240px;
+    --y: 200px;
+    left: 58px;
+    top: 87px;
+}
+.caja0 {
+    animation-name: caja-move0;
+}
+.caja0 div{
+    animation-name: caja-scale0;
+}
+.caja1 {
+    animation-name: caja-move1;
+}
+.caja1 div{
+    animation-name: caja-scale1;
+}
+.caja2 {
+    animation-name: caja-move2;
+}
+.caja2 div{
+    animation-name: caja-scale2;
+}
+.caja3 {
+    animation-name: caja-move3;
+}
+.caja3 div{
+    animation-name: caja-scale3;
+}
+.caja4 {
+    animation-name: caja-move4;
+}
+.caja4 div{
+    animation-name: caja-scale4;
+}
+.caja5 {
+    animation-name: caja-move5;
+}
+.caja5 div{
+    animation-name: caja-scale5;
+}
+.caja6 {
+    animation-name: caja-move6;
+}
+.caja6 div{
+    animation-name: caja-scale6;
+}
+.caja7 {
+    animation-name: caja-move7;
+}
+.caja7 div{    animation-name: caja-scale7;
+}
+@keyframes caja-move0 {
+    12% {transform: translate(var(--x), var(--y));}
+    25%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale0 {
+    6% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    14%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move1 {
+    16% {transform: translate(var(--x), var(--y)); }
+    29%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale1 {
+    10% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    18%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move2 {
+    20% {transform: translate(var(--x), var(--y));}
+    33%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale2 {
+    14% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    22%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move3 {
+    24% {transform: translate(var(--x), var(--y));}
+    37%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale3 {
+    18% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    26%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move4 {
+    28% {transform: translate(var(--x), var(--y));}
+    41%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale4 {
+    22% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    30%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move5 {
+    32% {transform: translate(var(--x), var(--y)); }
+    45%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale5 {
+    26% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    34%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move6 {
+    36% {transform: translate(var(--x), var(--y));}
+    49%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px);}
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale6 {
+    30% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    38%, 100% {transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes caja-move7 {
+    40% {transform: translate(var(--x), var(--y));}
+    53%, 52% {transform: translate(0, 0);}
+    80% {transform: translate(0, -32px); }
+    90%, 100% {transform: translate(0, 188px);}
+}
+@keyframes caja-scale7 {
+    34% { transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(0);}
+    42%, 100% { transform: rotatey(-47deg) rotatex(-15deg) rotatez(15deg) scale(1);}
+}
+@keyframes ground-shine {
+    0%, 70%  {  opacity: 0;}
+    75%, 87% {  opacity: 0.2;}
+    100%     {  opacity: 0;}
+}
+@keyframes mask {
+    0%, 65%   { opacity: 0;}
+    66%, 100% { opacity: 1;}
+}
+@keyframes  ground {
+    0%, 65% {
+        transform: rotatex(90deg) rotatey(0deg) translate(-48px, -120px) translatez(100px) scale(0);
+    }
+    75%, 90% {
+        transform:  rotatex(90deg) rotatey(0deg) translate(-48px, -120px) translatez(100px) scale(1);
+    }
+    100% {
+        transform: rotatex(90deg) rotatey(0deg) translate(-48px, -120px) translatez(100px) scale(0);
+    }
+}
+</style>
+<div class="Animacion">
+    <div class="caja caja0">
+        <div></div>
+    </div>
+    <div class="caja caja1">
+        <div></div>
+    </div>
+    <div class="caja caja2">
+        <div></div>
+    </div>
+    <div class="caja caja3">
+        <div></div>
+    </div>
+    <div class="caja caja4">
+        <div></div>
+    </div>
+    <div class="caja caja5">
+        <div></div>
+    </div>
+    <div class="caja caja6">
+        <div></div>
+    </div>
+    <div class="caja caja7">
+        <div></div>
+    </div>
+    <div class="ground">
+        <div></div>
+    </div>
+</div>
