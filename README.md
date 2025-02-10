@@ -10,3 +10,5 @@
 # Animacion-v5
 ![video-to-gif](https://raw.githubusercontent.com/marlondeve/Animaciones/main/Animacion%20v5/img.png)
 
+# Animacion-v6
+![video-to-gif](https://raw.githubusercontent.com/marlondeve/Animaciones/main/Animacion%20v6/img.gif)
